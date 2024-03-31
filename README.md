@@ -51,6 +51,5 @@ Please refer to individual component files for detailed code documentation.
 
 ---
 
-For any additional questions or contributions, please contact the project maintainers or submit an issue on the repository.
 
 Thank you for visiting SwiftJobs Portal!
