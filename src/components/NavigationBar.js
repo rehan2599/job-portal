@@ -12,7 +12,6 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-// import LogoIcon from './../../icons/logo.png'
 import { useNavigate } from 'react-router-dom';
 
 const pages = ['Home', 'About', 'Job Listings', 'Contact', 'Company Showcase'];
@@ -25,12 +24,13 @@ function NavigationBar() {
 
   const handleMenuClick = (page) => {
     handleCloseNavMenu();
-    navigate(`/${page.toLowerCase().replace(/\s+/g, '-')}`); // Converts "Job Listings" to "job-listings"
+    navigate(`/${page.toLowerCase().replace(/\s+/g, '-')}`);
   };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -44,12 +44,12 @@ function NavigationBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#59E4A8'}}>
+    <AppBar position="static" sx={{ backgroundColor: '#000080'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             component="a"
             href=""
@@ -57,7 +57,7 @@ function NavigationBar() {
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
-              fontWeight: 700,
+              fontWeight: 'bold',
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
@@ -96,8 +96,12 @@ function NavigationBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem
+                  key={page}
+                  onClick={() => handleMenuClick(page)}
+                  sx={{ '&:hover': { textDecoration: 'underline' } }}
+                >
+                  {page}
                 </MenuItem>
               ))}
             </Menu>
@@ -113,7 +117,7 @@ function NavigationBar() {
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
-              fontWeight: 700,
+              fontWeight: 'bold',
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
@@ -126,7 +130,7 @@ function NavigationBar() {
               <Button
                 key={page}
                 onClick={() => handleMenuClick(page)}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', fontWeight: 'bold' }}
               >
                 {page}
               </Button>
@@ -157,7 +161,7 @@ function NavigationBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  {setting}
                 </MenuItem>
               ))}
             </Menu>
