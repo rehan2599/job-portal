@@ -17,7 +17,7 @@ const Contact = () => {
   return (
     <Container maxWidth="sm" style={{ marginTop: '20px', padding: '30px', border: '1px solid #cccccc', borderRadius: '8px' }}>
       <Typography variant="h4" component="h1" gutterBottom align="center" style={{ marginBottom: '20px' }}>
-        Contact the RK Job team
+        Contact the SwiftJobs team
       </Typography>
       <Typography paragraph align="center" style={{ marginBottom: '30px' }}>
         We're here to answer your questions. Let's talk!

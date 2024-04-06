@@ -7,7 +7,7 @@ function Home() {
     <>
     <Container maxWidth="lg" style={{ marginTop: '20px' }}>
       <Typography variant="h2" component="h1" gutterBottom>
-        Welcome to RK Jobs Portal
+        Welcome to SwiftJobs Portal
       </Typography>
       <Typography variant="h5" component="h2" gutterBottom>
         Find Your Dream Job or Showcase Your Company With Us

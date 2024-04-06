@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,13 +14,14 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import background from './../../images/bg.jpg'; // Ensure this path is correct
 import { useNavigate } from 'react-router-dom';
+import { signIn } from '../../model/authService';
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://www.linkedin.com/in/rehan-khan2599/">
-        RK Jobs.
+        SwiftJobs.
       </Link>{' '}
       {/* {new Date().getFullYear()} */}
       {/* {'.'} */}
@@ -32,15 +33,23 @@ const defaultTheme = createTheme();
 
 export default function SignInSide() {
     const navigate = useNavigate();
+    const [error, setError] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-    navigate('/home');
+      const data = new FormData(event.currentTarget);
+        const email = data.get('email');
+        const password = data.get('password');
+        try {
+            const response = await signIn(email, password); 
+            console.log(response);
+           
+            // localStorage.setItem('token', response.data.token);
+            navigate('/home');
+        } catch (error) {
+            console.error('SignIn error', error);
+            setError('Invalid email or password.'); 
+        }
   };
 
   return (
@@ -98,6 +107,12 @@ export default function SignInSide() {
                 id="password"
                 autoComplete="current-password"
               />
+               {/* Error message display */}
+              {error && (
+                  <Typography color="error" align="center" sx={{ mt: 2 }}>
+                      {error} {/* Display error message if sign-in fails */}
+                  </Typography>
+              )}
               <Button
                 type="submit"
                 fullWidth

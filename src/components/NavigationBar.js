@@ -15,13 +15,19 @@ import AdbIcon from '@mui/icons-material/Adb';
 // import LogoIcon from './../../icons/logo.png'
 import { useNavigate } from 'react-router-dom';
 
-const pages = ['Home', 'About', 'Job Listings', 'Contact', 'Company Showcase'];
+const pages = ['Home', 'About', 'Jobs', 'Contact', 'Companies'];
 const settings = ['Logout'];
 
 function NavigationBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Adjust based on how you store the token
+    navigate('/');
+    handleCloseUserMenu();
+  };
 
   const handleMenuClick = (page) => {
     handleCloseNavMenu();
@@ -155,11 +161,14 @@ function NavigationBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              {/* {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
+              <MenuItem onClick={handleLogout}>
+                <Typography textAlign="center">Logout</Typography>
+              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
