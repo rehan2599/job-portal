@@ -7,9 +7,9 @@ Welcome to the SwiftJobs Portal, a comprehensive job search platform that connec
 To get the project running on your local machine, follow these steps:
 
 1. Clone the repository to your local machine using `git clone https://github.com/rehan2599/WebDesign_Assignments/tree/main/WebDesign_Assignment9`.
-2. Navigate to the project directory with `cd swiftjobs-portal`.
-3. Install the necessary dependencies with `npm install`.
-4. Start the development server with `npm start`. This should launch the project on `http://localhost:3000`.
+2. Navigate to the project directory with `cd jobs-portal`.
+3. Install the necessary dependencies with `npm run install-all`.
+4. Start the development server with `npm run start`. This should launch the project on `http://localhost:3000`.
 
 ## Structure
 
