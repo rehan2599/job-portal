@@ -15,12 +15,6 @@ function App() {
       <Routes>
         <Route path="/" element={<SignInSide />} />
         <Route path="*" element={<Layout />} />
-
-        {/* <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/job-listings" element={<JobListings />} />
-        <Route path="/company-showcase" element={<CompanyShowcase />} /> */}
       </Routes>
     </BrowserRouter>
   );
@@ -38,6 +32,7 @@ const Layout = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/job-listings" element={<JobListings />} />
         <Route path="/company-showcase" element={<CompanyShowcase />} />
+        {/* If you have a 404 page or other routes, define them here */}
       </Routes>
     </>
   );
